@@ -94,7 +94,7 @@ const Projects = () => {
       id="projects"
       className="relative z-10 min-h-screen text-white overflow-hidden py-20"
     >
-        <BackgroundParticlesRest />
+      <BackgroundParticlesRest />
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -122,9 +122,12 @@ const Projects = () => {
           <p className="text-gray-400 mb-4">
             ¿Interesado en colaborar en un proyecto?
           </p>
-          <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25">
+          <a 
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+             href='#contact'
+            >
             Hablemos
-          </button>
+          </a>
         </div>
       </div>
 

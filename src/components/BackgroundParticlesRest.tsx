@@ -158,7 +158,7 @@ const BackgroundParticlesRest = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-none"
+      className="absolute inset-0 w-full h-full z-0 pointer-events-none"
       style={{ 
         background: 'radial-gradient(ellipse at center, rgba(15, 23, 42, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
         mixBlendMode: 'screen'
