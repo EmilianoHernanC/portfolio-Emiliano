@@ -4,7 +4,7 @@ import MouseTrail from "../components/MouseTrail"
 
 const Hero = () => {
    return (
-    <section id="home" className="relative min-h-screen bg-black overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-black overflow-hidden">
       {/* Fondo de partículas */}
       <MouseTrail />
       <ParticlesBackground />

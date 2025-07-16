@@ -2,7 +2,8 @@ import Hero from "./views/Hero"
 import AboutMe from "./views/AboutMe"
 import Projects from "./views/Projects"
 import Contact from "./views/Contact"
-// import Footer from "./components/Footer"
+import Footer from "./components/Footer"
+import ScrollRocket from "./components/ScrollRocket"
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         <AboutMe />
         <Projects />
         <Contact />
-        
-
+        <Footer />
+        <ScrollRocket />
       </div>
     </>
   )

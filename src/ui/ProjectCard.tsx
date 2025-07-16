@@ -1,6 +1,5 @@
 import { ExternalLink } from "lucide-react";
 
-
 type Project = {
   id: number;
   title: string;
