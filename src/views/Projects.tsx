@@ -4,6 +4,7 @@ import { ProjectCard } from '../ui/ProjectCard';
 import { ProjectModal } from '../ui/ProjectModal';
 import BackgroundParticlesRest from '../components/BackgroundParticlesRest';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../hooks/TranslationHook';
 
 const GestionStock = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80";
 
@@ -25,114 +26,102 @@ type Project = {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const t= useTranslation()
+
 
   // Datos de ejemplo - reemplaza con tus proyectos reales
   const projects = [
     {
       id: 1,
-      title: "Gestion de Inventario",
-      category: "Full Stack",
-      description: "Plataforma de Gesiton de inventario y Stock para una Empresa de Respuestos de Automovil y Motocicletas.",
-      longDescription: "Plataforma moderna que permite al usuario mantener una base de datos de todos los productos que ingresan y salen, realizar actualizaciones y tener un Dashboard completo al final del dia.",
+      title: t.project.inventory.title,
+      category: t.project.inventory.category,
+      description: t.project.inventory.description,
+      longDescription: t.project.inventory.longDescription,
       image: GestionStock,
       stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand"],
-      features: [
-        "Autenticación JWT segura",
-        "Sistema de pagos con Stripe",
-        "Panel de administración",
-        "Carrito de compras persistente",
-        "Sistema de reviews y ratings",
-        "Notificaciones en tiempo real"
-      ],
+      features: [t.project.inventory.features],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/username/project",
-      date: "Enero 2024",
-      status: "Completado"
+      date: t.project.inventory.date,
+      status: t.project.inventory.status
     },
     {
       id: 2,
-      title: "Sistema TSA",
-      category: "Full Stack",
-      description: "Aplicación móvil para gestión de tareas con sincronización en tiempo real y colaboración en equipo.",
-      longDescription: " plataforma tipo campus con login para instructores, administradores, contratistas y comitentes. Permite gestión de cursos, asignación de alumnos, visualización de datos desde base de datos y control de accesos según rol. Stack: React, Tailwind, Node.js, Express, MySQL, manejo de estados globales y autenticación con tokens. ",
+      title: t.project.tsa.title,
+      category: t.project.tsa.category,
+      description: t.project.tsa.description,
+      longDescription: t.project.tsa.longDescription,
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80",
       stack: ["React", "Tailwind", "ExpressJS", "NodeJS", "JWT"],
-      features: [
-        "Sincronización en tiempo real",
-        "Trabajo offline",
-        "Notificaciones push",
-        "Colaboración en equipo",
-        "Seguimiento de progreso",
-        "Interfaz intuitiva"
-      ],
+      features: [t.project.tsa.features],
       liveUrl: "https://aattvac.com/capacitacionestsa",
       githubUrl: "https://github.com/username/project",
-      date: "Marzo 2025",
-      status: "Completado"
+      date: t.project.tsa.date,
+      status: t.project.tsa.status
     },
-    {
-      id: 3,
-      title: "AI Data Dashboard",
-      category: "Data Science",
-      description: "Dashboard interactivo para visualización de datos con machine learning y análisis predictivo.",
-      longDescription: "Plataforma de análisis de datos que combina visualizaciones interactivas con modelos de machine learning para proporcionar insights empresariales. Incluye análisis predictivo, detección de anomalías y generación automática de reportes.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-      stack: ["Python", "React", "D3.js", "TensorFlow", "PostgreSQL", "Docker"],
-      features: [
-        "Visualizaciones interactivas",
-        "Modelos de ML integrados",
-        "Análisis predictivo",
-        "Reportes automatizados",
-        "API REST escalable",
-        "Procesamiento en tiempo real"
-      ],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/username/project",
-      date: "Marzo 2024",
-      status: "En desarrollo"
-    },
-    {
-      id: 4,
-      title: "E-commerce Platform",
-      category: "Full Stack",
-      description: "Plataforma de comercio electrónico moderna con sistema de pagos integrado y gestión de inventario.",
-      longDescription: "Sistema completo de e-commerce con funcionalidades avanzadas de gestión de productos, usuarios y pedidos.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
-      stack: ["Next.js", "Stripe", "MongoDB", "Redis", "Docker"],
-      features: [
-        "Sistema de pagos",
-        "Gestión de inventario",
-        "Dashboard de ventas",
-        "Notificaciones push",
-        "Sistema de reviews",
-        "Carrito persistente"
-      ],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/username/project",
-      date: "Abril 2024",
-      status: "Completado"
-    },
-    {
-      id: 5,
-      title: "Chat Application",
-      category: "Real Time",
-      description: "Aplicación de chat en tiempo real con rooms, mensajes privados y compartir archivos.",
-      longDescription: "Sistema de mensajería instantánea con funcionalidades avanzadas de comunicación y colaboración.",
-      image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
-      stack: ["Socket.io", "React", "Node.js", "MongoDB", "WebRTC"],
-      features: [
-        "Mensajes en tiempo real",
-        "Videollamadas",
-        "Compartir archivos",
-        "Rooms públicas y privadas",
-        "Notificaciones push",
-        "Historial de mensajes"
-      ],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/username/project",
-      date: "Mayo 2024",
-      status: "En desarrollo"
-    }
+    // {
+    //   id: 3,
+    //   title: "AI Data Dashboard",
+    //   category: "Data Science",
+    //   description: "Dashboard interactivo para visualización de datos con machine learning y análisis predictivo.",
+    //   longDescription: "Plataforma de análisis de datos que combina visualizaciones interactivas con modelos de machine learning para proporcionar insights empresariales. Incluye análisis predictivo, detección de anomalías y generación automática de reportes.",
+    //   image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    //   stack: ["Python", "React", "D3.js", "TensorFlow", "PostgreSQL", "Docker"],
+    //   features: [
+    //     "Visualizaciones interactivas",
+    //     "Modelos de ML integrados",
+    //     "Análisis predictivo",
+    //     "Reportes automatizados",
+    //     "API REST escalable",
+    //     "Procesamiento en tiempo real"
+    //   ],
+    //   liveUrl: "https://example.com",
+    //   githubUrl: "https://github.com/username/project",
+    //   date: "Marzo 2024",
+    //   status: "En desarrollo"
+    // },
+    // {
+    //   id: 4,
+    //   title: "E-commerce Platform",
+    //   category: "Full Stack",
+    //   description: "Plataforma de comercio electrónico moderna con sistema de pagos integrado y gestión de inventario.",
+    //   longDescription: "Sistema completo de e-commerce con funcionalidades avanzadas de gestión de productos, usuarios y pedidos.",
+    //   image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+    //   stack: ["Next.js", "Stripe", "MongoDB", "Redis", "Docker"],
+    //   features: [
+    //     "Sistema de pagos",
+    //     "Gestión de inventario",
+    //     "Dashboard de ventas",
+    //     "Notificaciones push",
+    //     "Sistema de reviews",
+    //     "Carrito persistente"
+    //   ],
+    //   liveUrl: "https://example.com",
+    //   githubUrl: "https://github.com/username/project",
+    //   date: "Abril 2024",
+    //   status: "Completado"
+    // },
+    // {
+    //   id: 5,
+    //   title: "Chat Application",
+    //   category: "Real Time",
+    //   description: "Aplicación de chat en tiempo real con rooms, mensajes privados y compartir archivos.",
+    //   longDescription: "Sistema de mensajería instantánea con funcionalidades avanzadas de comunicación y colaboración.",
+    //   image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+    //   stack: ["Socket.io", "React", "Node.js", "MongoDB", "WebRTC"],
+    //   features: [
+    //     "Mensajes en tiempo real",
+    //     "Videollamadas",
+    //     "Compartir archivos",
+    //     "Rooms públicas y privadas",
+    //     "Notificaciones push",
+    //     "Historial de mensajes"
+    //   ],
+    //   liveUrl: "https://example.com",
+    //   githubUrl: "https://github.com/username/project",
+    //   date: "Mayo 2024",
+    //   status: "En desarrollo"
+    // }
   ];
 
   // Configuración responsive para mostrar diferentes cantidades de cards
@@ -159,7 +148,6 @@ const Projects = () => {
   const goToSlide = (index: number) => {
     setCurrentIndex(Math.min(index, maxIndex));
   };
-
   return (
     <section 
       id="projects"

@@ -5,8 +5,10 @@ import BackgroundParticlesRest from "../components/BackgroundParticlesRest";
 import type{ FormData, FormErrors, SubmitStatus } from '../types/contact';
 import { validateForm, isFormValid } from '../utils/validation';
 import { emailService } from '../services/emailService';
+import { useTranslation } from '../hooks/TranslationHook';
 
 export default function Contact() {
+  const t= useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -102,7 +104,7 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Contactame
+            {t.contact.title}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-4"></div>
         </motion.div>
@@ -118,12 +120,10 @@ export default function Contact() {
           >
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
               <h3 className="text-2xl font-semibold mb-6 text-white">
-                ¡Hablemos de tu proyecto!
+                {t.contact.subtitle}
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Estoy listo para ayudarte a materializar tus ideas en soluciones digitales innovadoras. 
-                Ya sea que necesites desarrollar una aplicación web, optimizar tu presencia online o 
-                crear experiencias únicas para tus usuarios, me encantaría colaborar contigo.
+                {t.contact.description}
               </p>
               
               <div className="space-y-6">
@@ -161,13 +161,13 @@ export default function Contact() {
             className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8"
           >
             <h3 className="text-2xl font-semibold mb-6 text-white">
-              Envíame un mensaje
+              {t.contact.sendMessage}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Nombre *
+                  {t.contact.nameLabel}
                 </label>
                 <input
                   type="text"
@@ -178,7 +178,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 bg-gray-800/50 border ${
                     errors.name ? 'border-red-500' : 'border-gray-600'
                   } rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                  placeholder="Tu nombre completo"
+                  placeholder={t.contact.namePlaceholder}
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
@@ -190,7 +190,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email *
+                  {t.contact.emailLabel}
                 </label>
                 <input
                   type="email"
@@ -201,7 +201,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 bg-gray-800/50 border ${
                     errors.email ? 'border-red-500' : 'border-gray-600'
                   } rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                  placeholder="tu@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
@@ -213,7 +213,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Mensaje *
+                  {t.contact.messageLabel}
                 </label>
                 <textarea
                   id="message"
@@ -224,7 +224,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 bg-gray-800/50 border ${
                     errors.message ? 'border-red-500' : 'border-gray-600'
                   } rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none`}
-                  placeholder="Cuéntame sobre tu proyecto o idea..."
+                  placeholder={t.contact.messagePlaceholder}
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
@@ -246,12 +246,12 @@ export default function Contact() {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Enviando...
+                    {t.contact.sending}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Enviar mensaje
+                    {t.contact.sendButton}
                   </>
                 )}
               </button>
@@ -265,7 +265,7 @@ export default function Contact() {
                 className="mt-4 p-4 bg-green-500/20 border border-green-500/50 rounded-xl flex items-center gap-2 text-green-400"
               >
                 <CheckCircle className="w-5 h-5" />
-                ¡Mensaje enviado con éxito! Te contactaré pronto.
+                {t.contact.success}
               </motion.div>
             )}
 
@@ -276,7 +276,7 @@ export default function Contact() {
                 className="mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-xl flex items-center gap-2 text-red-400"
               >
                 <AlertCircle className="w-5 h-5" />
-                Error al enviar el mensaje. Por favor, intenta de nuevo.
+                {t.contact.error}
               </motion.div>
             )}
           </motion.div>

@@ -1,7 +1,9 @@
 import { Mail, Linkedin, Github, Phone } from 'lucide-react';
 import BackgroundParticlesRest from './BackgroundParticlesRest';
+import { useTranslation } from '../hooks/TranslationHook';
 
 export default function Footer() {
+  const t = useTranslation();
   const footerLinks = [
     {
       icon: Mail,
@@ -34,10 +36,10 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-8">
         <h3 className="text-2xl md:text-3xl font-semibold">
-          ¡Gracias por visitar mi portfolio!
+          {t.footer.thanks}
         </h3>
         <p className="text-gray-400 max-w-xl">
-          Si te gustó lo que viste, no dudes en contactarme por cualquiera de mis redes.
+          {t.footer.shortDescription}
         </p>
 
         <div className="flex gap-6 flex-wrap justify-center">
@@ -58,7 +60,7 @@ export default function Footer() {
         <div className="w-full h-px bg-gray-700/40 mt-6"></div>
 
         <p className="text-sm text-gray-500">
-          © {new Date().getFullYear()} Creado por Emiliano Cortez. Todos los derechos reservados.
+          © {new Date().getFullYear()} {t.footer.copyright}
         </p>
       </div>
     </footer>
