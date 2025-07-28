@@ -51,7 +51,7 @@ const Projects = () => {
       longDescription: t.project.tsa.longDescription,
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80",
       stack: ["React", "Tailwind", "ExpressJS", "NodeJS", "JWT"],
-      features: [t.project.tsa.features],
+      features: t.project.tsa.features,
       liveUrl: "https://aattvac.com/capacitacionestsa",
       githubUrl: "https://github.com/username/project",
       date: t.project.tsa.date,
