@@ -6,8 +6,6 @@ import BackgroundParticlesRest from '../components/BackgroundParticlesRest';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/TranslationHook';
 
-const GestionStock = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80";
-
 type Project = {
   id: number;
   title: string;
@@ -31,20 +29,20 @@ const Projects = () => {
 
   // Datos de ejemplo - reemplaza con tus proyectos reales
   const projects = [
-    {
-      id: 1,
-      title: t.project.inventory.title,
-      category: t.project.inventory.category,
-      description: t.project.inventory.description,
-      longDescription: t.project.inventory.longDescription,
-      image: GestionStock,
-      stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand"],
-      features: [t.project.inventory.features],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/username/project",
-      date: t.project.inventory.date,
-      status: t.project.inventory.status
-    },
+    // {
+    //   id: 1,
+    //   title: t.project.inventory.title,
+    //   category: t.project.inventory.category,
+    //   description: t.project.inventory.description,
+    //   longDescription: t.project.inventory.longDescription,
+    //   image: GestionStock,
+    //   stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand"],
+    //   features: [t.project.inventory.features],
+    //   liveUrl: "Proximamente ...",
+    //   githubUrl: "https://github.com/username/project",
+    //   date: t.project.inventory.date,
+    //   status: t.project.inventory.status
+    // },
     {
       id: 2,
       title: t.project.tsa.title,
@@ -58,7 +56,7 @@ const Projects = () => {
       githubUrl: "https://github.com/username/project",
       date: t.project.tsa.date,
       status: t.project.tsa.status
-    },
+    }
     // {
     //   id: 3,
     //   title: "AI Data Dashboard",
