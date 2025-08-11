@@ -29,20 +29,20 @@ const Projects = () => {
 
   // Datos de ejemplo - reemplaza con tus proyectos reales
   const projects = [
-    // {
-    //   id: 1,
-    //   title: t.project.inventory.title,
-    //   category: t.project.inventory.category,
-    //   description: t.project.inventory.description,
-    //   longDescription: t.project.inventory.longDescription,
-    //   image: GestionStock,
-    //   stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand"],
-    //   features: [t.project.inventory.features],
-    //   liveUrl: "Proximamente ...",
-    //   githubUrl: "https://github.com/username/project",
-    //   date: t.project.inventory.date,
-    //   status: t.project.inventory.status
-    // },
+    {
+    id: 1,
+    title: t.project.inventory.title,
+    category: t.project.inventory.category,
+    description: t.project.inventory.description,
+    longDescription: t.project.inventory.longDescription,
+    image: "https://images.unsplash.com/photo-1581093588401-2f6e3fc1c986?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand", "vite"],
+    features: t.project.inventory.features,
+    liveUrl: "https://res-api-typescript-client.vercel.app/",
+    githubUrl: "https://res-api-typescript-client.vercel.app/",
+    date: t.project.inventory.date,
+    status: t.project.inventory.status
+    },
     {
       id: 2,
       title: t.project.tsa.title,

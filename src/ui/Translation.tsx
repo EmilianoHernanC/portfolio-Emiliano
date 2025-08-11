@@ -16,14 +16,10 @@ export const Translation = {
             description: "Plataforma de Gestión de inventario y Stock para una Empresa de Repuestos de Automóvil y Motocicletas.",
             longDescription: "Plataforma moderna que permite al usuario mantener una base de datos de todos los productos que ingresan y salen, realizar actualizaciones y tener un Dashboard completo al final del día.",
             features: [
-            "Autenticación JWT segura",
-            "Sistema de pagos con Stripe",
             "Panel de administración",
-            "Carrito de compras persistente",
-            "Sistema de reviews y ratings",
             "Notificaciones en tiempo real"
             ],
-            date: "Enero 2024",
+            date: "Enero 2025",
             status: "Completado"
         },
         tsa: {
@@ -39,7 +35,7 @@ export const Translation = {
             "Seguimiento de progreso",
             "Interfaz intuitiva"
             ],
-            date: "Marzo 2025",
+            date: "Agosto 2024",
             status: "Completado"
         }
         },
