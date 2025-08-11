@@ -5,6 +5,7 @@ import { ProjectModal } from '../ui/ProjectModal';
 import BackgroundParticlesRest from '../components/BackgroundParticlesRest';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/TranslationHook';
+import gestion from "../assets/gestion.webp"
 
 type Project = {
   id: number;
@@ -35,7 +36,7 @@ const Projects = () => {
     category: t.project.inventory.category,
     description: t.project.inventory.description,
     longDescription: t.project.inventory.longDescription,
-    image: "https://images.unsplash.com/photo-1581093588401-2f6e3fc1c986?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    image: gestion,
     stack: ["React", "Tailwind", "PostgreSQL", "Typescript", "Zustand", "vite"],
     features: t.project.inventory.features,
     liveUrl: "https://res-api-typescript-client.vercel.app/",
